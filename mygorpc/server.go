@@ -11,6 +11,7 @@ import (
 )
 
 /*
+server
 要搭建 server 层，首先我们要明确 server 层需要支持哪些能力，其实 server 的核心就是提供服务请求的处理能力。
 server 侧定义服务，发布服务，接收到服务的请求后，根据服务名和请求的方法名去路由到一个 handler 处理器，然后由 handler 处理请求，
 得到响应，并且把响应数据发送给 client。
