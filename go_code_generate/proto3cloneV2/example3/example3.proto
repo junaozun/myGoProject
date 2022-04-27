@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-package example3;
-option go_package = "go_gen/proto3cloneV2/example3;example3";
-
-message Teacher {
-  int32 id = 1;
-}
