@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package example;
+
+// 请求Debug命令
+message RequestServiceDebugCmd {
+  string cmd = 1; // cmd
+  bytes param = 2; // 参数
+  repeated int32 groups = 3;
+  repeated string unit = 4;
+  repeated int32 beasts = 5;
+  repeated bytes commanders =6;
+  applesServerin apple = 7;
+  map<string,int32> tem = 8;
+  map<string,int32> addr = 9;
+  map<string,applesServerin> addrEntry = 10;
+  map<string,applesServerin> addrEntry2 = 11;
+}
+
+message applesServerin {
+  int32 id = 1;
+  string name = 2;
+  repeated int32 student = 3;
+  repeated string teacher =4;
+  Binary bb = 5;
+}
+
+message Binary {
+  repeated string id =1;
+  applesServerin aa = 2;
+}

@@ -13,18 +13,17 @@ const (
 	RoundRobin         = "roundRobin"
 	WeightedRoundRobin = "weightedRoundRobin"
 	ConsistentHash     = "consistentHash"
-
-	Custom = "custom"
 )
 
 func init() {
-	RegisterBalancer(Random, DefaultBalancer)
+	RegisterBalancer(Random, RandomBalancer)
 	RegisterBalancer(RoundRobin, RRBalancer)
 	RegisterBalancer(WeightedRoundRobin, WRRBalancer)
+	RegisterBalancer(ConsistentHash, ConsistHashBalancer)
 }
 
 // 请求随机分配到各个服务器。
-var DefaultBalancer = newRandomBalancer()
+var RandomBalancer = newRandomBalancer()
 
 // 将所有请求依次分发到每台服务器上，适合服务器硬件配置相同的场景。
 var RRBalancer = newRoundRobinBalancer()
@@ -35,7 +34,7 @@ var WRRBalancer = newWeightedRoundRobinBalancer()
 // 按照一致性哈希算法，将请求分发到每台服务器上。
 //优点：能够避免传统哈希算法因服务器数量变化而引起的集群雪崩问题。
 //缺点：实现较为复杂，请求量比较小的场景下，可能会出现某个服务器节点完全空闲的情况
-var ConsistHashBalancer = eeeee()
+var ConsistHashBalancer = newConsistentHashBalancer()
 
 func RegisterBalancer(name string, balancer Balancer) {
 	if balancerMap == nil {
@@ -49,5 +48,5 @@ func GetBalancer(name string) Balancer {
 	if balancer, ok := balancerMap[name]; ok {
 		return balancer
 	}
-	return DefaultBalancer
+	return RandomBalancer
 }

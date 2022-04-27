@@ -8,13 +8,11 @@ import (
 	"github.com/garyburd/redigo/redis"
 )
 
-var redisType = flag.String("t", "", "大陆还是全球")
+var redisUrl = flag.String("redisUrl", "", "redisUrl")
 var redisIndex = flag.String("index", "", "redis index")
 
-//通过go向redis写入数据和读取数据
 func main() {
 	flag.Parse()
-	var port string
 
 	ri, err := strconv.Atoi(*redisIndex)
 	if err != nil {
@@ -26,18 +24,8 @@ func main() {
 		return
 	}
 
-	switch *redisType {
-	case "mainLand":
-		port = ":9898"
-	case "ie":
-		port = ":9902"
-	default:
-		fmt.Println("类型错误")
-		return
-	}
-
 	//1.连接到redis数据库
-	con, err := redis.Dial("tcp", "game.sanguo.bj"+port)
+	con, err := redis.Dial("tcp", *redisUrl)
 	if err != nil {
 		fmt.Println("redis conn fail：", err)
 		return

@@ -5,13 +5,12 @@ import (
 	"mygorpc/selector"
 	"time"
 )
+type randomBalancer struct {
+}
 
 // 随机
 func newRandomBalancer() *randomBalancer {
 	return &randomBalancer{}
-}
-
-type randomBalancer struct {
 }
 
 func (r *randomBalancer) Balance(serviceName string, nodes []*selector.Node) *selector.Node {

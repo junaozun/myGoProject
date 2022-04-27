@@ -37,7 +37,7 @@ func (j *Jaeger) Init(opts ...plugin.Option) (opentracing.Tracer, error) {
 	}
 
 	if j.opts.TracingSvrAddr == "" {
-		return nil, errors.New("jaeger init error, traingSvrAddr is empty")
+		return nil, errors.New("jaeger init codes, traingSvrAddr is empty")
 	}
 
 	return initJaeger(j.opts.TracingSvrAddr, JaegerServerName, opts...)
@@ -115,7 +115,7 @@ func OpenTracingServerInterceptor(tracer opentracing.Tracer, spanName string) in
 
 		spanContext, err := tracer.Extract(opentracing.HTTPHeaders, mdCarrier)
 		if err != nil && err != opentracing.ErrSpanContextNotFound {
-			return nil, errors.New(fmt.Sprintf("tracer extract error : %v", err))
+			return nil, errors.New(fmt.Sprintf("tracer extract codes : %v", err))
 		}
 		serverSpan := tracer.StartSpan(spanName, ext.RPCServerOption(spanContext), ext.SpanKindRPCServer)
 		defer serverSpan.Finish()

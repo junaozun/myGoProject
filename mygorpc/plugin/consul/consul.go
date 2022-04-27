@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"mygorpc/plugin"
 	"mygorpc/selector"
+	"mygorpc/selector/loadbalance"
 	"net/http"
 	"strings"
 
@@ -79,7 +80,7 @@ func (c *Consul) Select(serviceName string) (string, error) {
 		return "", err
 	}
 
-	balancer := selector.GetBalancer(c.balancerName)
+	balancer := loadbalance.GetBalancer(c.balancerName)
 	node := balancer.Balance(serviceName, nodes)
 
 	if node == nil {
@@ -130,7 +131,7 @@ func (c *Consul) Init(opts ...plugin.Option) error {
 	}
 
 	if len(c.opts.Services) == 0 || c.opts.SvrAddr == "" || c.opts.SelectorSvrAddr == "" {
-		return fmt.Errorf("consul init error, len(services) : %d, svrAddr : %s, selectorSvrAddr : %s",
+		return fmt.Errorf("consul init codes, len(services) : %d, svrAddr : %s, selectorSvrAddr : %s",
 			len(c.opts.Services), c.opts.SvrAddr, c.opts.SelectorSvrAddr)
 	}
 

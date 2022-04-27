@@ -2,6 +2,7 @@ package serialization
 
 import (
 	"errors"
+	"mygorpc/utils"
 	"sync"
 
 	"github.com/golang/protobuf/proto"
@@ -42,7 +43,7 @@ func (d *pbSerialization) Marshal(v interface{}) ([]byte, error) {
 		return nil, err
 	}
 	data := buffer.Bytes()
-	buffer.lastMarshaledSize = upperLimit(len(data))
+	buffer.lastMarshaledSize = utils.UpperLimit(len(data))
 	buffer.SetBuf(nil)
 	bufferPool.Put(buffer)
 

@@ -1,6 +1,7 @@
 package mygorpc
 
 import (
+	"mygorpc/interceptor"
 	"time"
 )
 
@@ -16,6 +17,7 @@ type ServerOptions struct {
 	tracingSvrAddr  string   // tracing plugin server address, required when using the third-party tracing plugin
 	tracingSpanName string   // tracing span name, required when using the third-party tracing plugin
 	pluginNames     []string // plugin name
+	interceptors []interceptor.ServerInterceptor
 }
 
 type ServerOption func(*ServerOptions)

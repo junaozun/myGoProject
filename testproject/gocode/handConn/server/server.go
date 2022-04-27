@@ -15,28 +15,11 @@ func ServerV1() {
 	if err != nil {
 		panic(err)
 	}
-	//for {
-	//	conn, err := lis.Accept()
-	//	defer conn.Close()
-	//	if err != nil {
-	//		panic(err)
-	//	}
-	//
-	//	buffer := make([]byte, 1024)
-	//	recvNum, err := conn.Read(buffer)
-	//
-	//	msg := string(buffer[:recvNum])
-	//	fmt.Println("recv from client: ", msg)
-	//
-	//	conn.Write([]byte("world"))
-	//}
-
 	conn, err := lis.Accept()
 	defer conn.Close()
 	if err != nil {
 		panic(err)
 	}
-
 	buffer := make([]byte, 1024)
 	recvNum, err := conn.Read(buffer)
 
@@ -46,6 +29,25 @@ func ServerV1() {
 	conn.Write([]byte("world"))
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 // 解决问题1,使 server 的读写异步化，这里其实使用 go 语言的协程机制很方便实现

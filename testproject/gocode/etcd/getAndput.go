@@ -13,7 +13,7 @@ var cli *clientv3.Client
 func init() {
 	var err error
 	cli, err = clientv3.New(clientv3.Config{
-		Endpoints:   []string{"gate.sanguo.bj:2379"},
+		Endpoints:   []string{"10.18.98.163:2379", "10.18.98.164:2379", "10.18.98.165:2379"},
 		DialTimeout: 5 * time.Second,
 	})
 	if err != nil {
@@ -25,8 +25,8 @@ func init() {
 
 func main() {
 
-	//putEtcd()
-	//getEtcd()
+	// putEtcd()
+	// getEtcd()
 	putEtcdWithLease()
 
 	cli.Close()
@@ -62,15 +62,25 @@ func putEtcdWithLease() {
 	cancel()
 }
 
-func getEtcd() {
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
-	resp, err := cli.Get(ctx, "/game/sanguo/dev/service/state", clientv3.WithPrefix())
-	cancel()
-	if err != nil {
-		fmt.Printf("get from etcd failed, err:%v\n", err)
-		return
-	}
-	for _, ev := range resp.Kvs {
-		fmt.Printf("%s:%s\n", ev.Key, ev.Value)
+// func getEtcd() {
+// 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+// 	resp, err := cli.Get(ctx, "/game/sanguo/dev/service/state", clientv3.WithPrefix())
+// 	cancel()
+// 	if err != nil {
+// 		fmt.Printf("get from etcd failed, err:%v\n", err)
+// 		return
+// 	}
+// 	for _, ev := range resp.Kvs {
+// 		fmt.Printf("%s:%s\n", ev.Key, ev.Value)
+// 	}
+// }
+
+func watch() {
+	// watch key:q1mi change
+	rch := cli.Watch(context.Background(), "sxf") // <-chan WatchResponse
+	for wresp := range rch {
+		for _, ev := range wresp.Events {
+			fmt.Printf("Type: %s Key:%s Value:%s\n", ev.Type, ev.Kv.Key, ev.Kv.Value)
+		}
 	}
 }

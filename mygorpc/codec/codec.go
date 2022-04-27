@@ -3,6 +3,8 @@ package codec
 import (
 	"bytes"
 	"encoding/binary"
+	"github.com/golang/protobuf/proto"
+	"sync"
 )
 
 /*
@@ -118,4 +120,18 @@ func (c *defaultCodec) Encode(data []byte) ([]byte, error) {
 
 func (c *defaultCodec) Decode(frame []byte) ([]byte, error) {
 	return frame[FrameHeadLen:], nil
+}
+
+var bufferPool = &sync.Pool{
+	New: func() interface{} {
+		return &cachedBuffer{
+			Buffer:            proto.Buffer{},
+			lastMarshaledSize: 16,
+		}
+	},
+}
+
+type cachedBuffer struct {
+	proto.Buffer
+	lastMarshaledSize uint32
 }

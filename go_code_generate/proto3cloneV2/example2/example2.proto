@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package example2;
+option go_package = "go_gen/proto3cloneV2/example2;example2";
+
+message Hero {
+  int32 id = 1;
+}

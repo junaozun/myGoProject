@@ -20,7 +20,69 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62b4eea4-feb0-44f5-8134-7a97feb0f71b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go_code_generate/cmd/protoc-gen-sxf/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go_code_generate/generate/ext.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go_code_generate/generate/generator.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go_code_generate/proto3Clone/example/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go_code_generate/proto3Clone/example/example.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go_code_generate/proto3Clone/example/generate.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go_code_generate/proto3Clone/example/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go_code_generate/proto3Clone/gen_clone.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go_code_generate/proto3Clone/plugin.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go_code_generate/proto3cloneV2/example/b.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go_code_generate/proto3cloneV2/example/example.pb.base.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go_code_generate/proto3cloneV2/example/example.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go_code_generate/proto3cloneV2/example/example.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go_code_generate/proto3cloneV2/example/gen.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go_code_generate/proto3cloneV2/example/sometype/sometype.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go_code_generate/proto3cloneV2/example/sometype/sometype.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go_code_generate/proto3cloneV2/example/test.pb.base.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go_code_generate/proto3cloneV2/example/test.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../go_code_generate/proto3cloneV2/example/test.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mygorpc/codes/codes.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mygorpc/interceptor/interceptor.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mygorpc/metadata/metadata.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mygorpc/protocol/msg.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mygorpc/protocol/msg.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mygorpc/selector/loadbalance/consistent_hash.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mygorpc/stream/client_stream.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mygorpc/stream/server_stream.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mygorpc/stream/stream.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mygorpc/utils/addr_parse.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mygorpc/utils/common.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../testproject/benchmark/append_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../testproject/gocode/cgo/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../testproject/gocode/token_bucket/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../testproject/test/avatar.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../testproject/test/test3.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ginblog/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ginblog/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ginblog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ginblog/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mygorpc/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mygorpc/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mygorpc/client/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/../mygorpc/client/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mygorpc/client/client_options.go" beforeDir="false" afterPath="$PROJECT_DIR$/../mygorpc/client/client_options.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mygorpc/codec/codec.go" beforeDir="false" afterPath="$PROJECT_DIR$/../mygorpc/codec/codec.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mygorpc/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../mygorpc/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mygorpc/plugin/consul/consul.go" beforeDir="false" afterPath="$PROJECT_DIR$/../mygorpc/plugin/consul/consul.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mygorpc/plugin/jaeger/jaeger.go" beforeDir="false" afterPath="$PROJECT_DIR$/../mygorpc/plugin/jaeger/jaeger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mygorpc/selector/loadbalance/balancer.go" beforeDir="false" afterPath="$PROJECT_DIR$/../mygorpc/selector/loadbalance/balancer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mygorpc/selector/loadbalance/rand.go" beforeDir="false" afterPath="$PROJECT_DIR$/../mygorpc/selector/loadbalance/rand.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mygorpc/selector/loadbalance/round_robin.go" beforeDir="false" afterPath="$PROJECT_DIR$/../mygorpc/selector/loadbalance/round_robin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mygorpc/serialization/serialization_protobuf.go" beforeDir="false" afterPath="$PROJECT_DIR$/../mygorpc/serialization/serialization_protobuf.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mygorpc/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/../mygorpc/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mygorpc/server_options.go" beforeDir="false" afterPath="$PROJECT_DIR$/../mygorpc/server_options.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mygorpc/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/../mygorpc/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mygorpc/transport/client/client_options.go" beforeDir="false" afterPath="$PROJECT_DIR$/../mygorpc/transport/client_transport/client_options.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mygorpc/transport/client/client_transport.go" beforeDir="false" afterPath="$PROJECT_DIR$/../mygorpc/transport/client_transport/client_transport.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mygorpc/transport/client/client_transport_udp.go" beforeDir="false" afterPath="$PROJECT_DIR$/../mygorpc/transport/client_transport/client_transport_udp.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mygorpc/transport/server/server_options.go" beforeDir="false" afterPath="$PROJECT_DIR$/../mygorpc/transport/server_transport/server_options.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mygorpc/transport/server/server_transport.go" beforeDir="false" afterPath="$PROJECT_DIR$/../mygorpc/transport/server_transport/server_transport.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mygorpc/transport/server/server_transport_udp.go" beforeDir="false" afterPath="$PROJECT_DIR$/../mygorpc/transport/server_transport/server_transport_udp.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mygorpc/transport/transport.go" beforeDir="false" afterPath="$PROJECT_DIR$/../mygorpc/transport/transport.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testproject/gocode/handConn/client/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/../testproject/gocode/handConn/client/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testproject/gocode/handConn/server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/../testproject/gocode/handConn/server/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testproject/test/httpReq.go" beforeDir="false" afterPath="$PROJECT_DIR$/../testproject/test/httpReq.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testproject/test/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/../testproject/test/test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testproject/test/test2.go" beforeDir="false" afterPath="$PROJECT_DIR$/../testproject/test/test2.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,12 +98,13 @@
   </component>
   <component name="GOROOT" url="file:///usr/local/go" />
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="1ojpYFV5boAhaNPZNVigtjnZODG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />

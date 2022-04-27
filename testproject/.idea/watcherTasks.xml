@@ -25,5 +25,8 @@
         <env name="PATH" value="$GoBinDirs$" />
       </envs>
     </TaskOptions>
+    <enabled-global>
+      <option value="goimports" />
+    </enabled-global>
   </component>
 </project>

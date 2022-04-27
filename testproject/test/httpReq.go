@@ -81,6 +81,7 @@ func httpPost(addr string, data map[string]string) {
 	fmt.Println(string(body))
 }
 
+// "application/x-www-form-urlencoded"
 func PostForm(url string, value url.Values, out interface{}) error {
 	client := http.Client{
 		Timeout: 3 * time.Second, // todo 把不同接口的限制超时时间都定义在一块

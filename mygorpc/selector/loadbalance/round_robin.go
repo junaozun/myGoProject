@@ -49,7 +49,7 @@ type roundRobinPicker struct {
 }
 
 //roundRobinPicker 真正实现了根据上次访问下标 lastIndex、服务列表长度 length、上次访问时间 lastUpdateTime 等从一个服务列表里面去获取一个服务节点
-func (rp *roundRobinPicker) pick(nodes []*Node) *Node {
+func (rp *roundRobinPicker) pick(nodes []*selector.Node) *selector.Node {
 	if len(nodes) == 0 {
 		return nil
 	}

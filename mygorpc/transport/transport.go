@@ -5,11 +5,12 @@ import (
 	"encoding/binary"
 	"io"
 	"mygorpc/codec"
-	"mygorpc/transport/client"
-	"mygorpc/transport/server"
+	"mygorpc/codes"
+	"mygorpc/transport/client_transport"
+	"mygorpc/transport/server_transport"
+
 	"net"
 
-	"github.com/lubanproj/gorpc/codes"
 )
 
 /*
@@ -21,12 +22,12 @@ const MaxPayloadLength = 4 * 1024 * 1024
 
 // server 传输层主要提供一种监听和处理请求的能力
 type ServerTransport interface {
-	ListenAndServe(context.Context, ...server.ServerTransportOption) error
+	ListenAndServe(context.Context, ...server_transport.ServerTransportOption) error
 }
 
 // client 传输层主要提供一种向下游发送请求的能力
 type ClientTransport interface {
-	Send(context.Context, []byte, ...client.ClientTransportOptions) ([]byte, error)
+	Send(context.Context, []byte, ...client_transport.ClientTransportOption) ([]byte, error)
 }
 
 // 从网络流中读取数据
@@ -85,3 +86,16 @@ func (f *framer) ReadFrame(conn net.Conn) ([]byte, error) {
 	// 将帧头+包头+包体 拼在一起返回
 	return append(frameHeader, f.buffer[:length]...), nil
 }
+
+type ConnWrapper struct {
+	net.Conn
+	Framer Framer
+}
+
+func WrapConn(rawConn net.Conn) *ConnWrapper {
+	return &ConnWrapper{
+		Conn:   rawConn,
+		Framer: NewFramer(),
+	}
+}
+

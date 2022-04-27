@@ -1,11 +1,10 @@
 package client
 
 import (
+	"mygorpc/interceptor"
+	"mygorpc/transport/client_transport"
 	"time"
 
-	"github.com/lubanproj/gorpc/auth"
-	"github.com/lubanproj/gorpc/interceptor"
-	"github.com/lubanproj/gorpc/transport"
 )
 
 // ClientOptions defines the client call parameters
@@ -17,11 +16,11 @@ type ClientOptions struct {
 	network           string        // network type, e.g.:  tcp、udp
 	protocol          string        // protocol type , e.g. : proto、json
 	serializationType string        // seralization type , e.g. : proto、msgpack
-	transportOpts     transport.ClientTransportOptions
+	transportOpts     client_transport.ClientTransportOptions
 	interceptors      []interceptor.ClientInterceptor
 	selectorName      string            // service discovery name, e.g. : consul、zookeeper、etcd
-	perRPCAuth        []auth.PerRPCAuth // authentication information required for each RPC call
-	transportAuth     auth.TransportAuth
+	//perRPCAuth        []auth.PerRPCAuth // authentication information required for each RPC call
+	//transportAuth     auth.TransportAuth
 }
 
 type ClientOption func(*ClientOptions)
@@ -84,14 +83,14 @@ func WithInterceptor(interceptors ...interceptor.ClientInterceptor) ClientOption
 	}
 }
 
-func WithPerRPCAuth(rpcAuth auth.PerRPCAuth) ClientOption {
-	return func(o *ClientOptions) {
-		o.perRPCAuth = append(o.perRPCAuth, rpcAuth)
-	}
-}
-
-func WithTransportAuth(transportAuth auth.TransportAuth) ClientOption {
-	return func(o *ClientOptions) {
-		o.transportAuth = transportAuth
-	}
-}
+//func WithPerRPCAuth(rpcAuth auth.PerRPCAuth) ClientOption {
+//	return func(o *ClientOptions) {
+//		o.perRPCAuth = append(o.perRPCAuth, rpcAuth)
+//	}
+//}
+//
+//func WithTransportAuth(transportAuth auth.TransportAuth) ClientOption {
+//	return func(o *ClientOptions) {
+//		o.transportAuth = transportAuth
+//	}
+//}

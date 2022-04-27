@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package example;
+
+import "sometype.proto";
+import "example2.proto";
+
+// 请求Debug命令
+// |RequestServiceDebugCmd
+message RequestServiceDebugCmd {
+  string cmd = 1; // cmd
+  repeated bytes commanders =2;
+  repeated sometype.applesServerin binary = 3;
+  repeated localWay sandBox = 4;
+  sometype.applesServerin apple = 5;
+  localWay ll =6;
+  map<string,int32> tem = 7;
+  map<string,localWay> tem2 = 8;
+  map<string,sometype.applesServerin> addrEntry = 9;
+  example2.Hero hero = 10;
+}
+
+message localWay {
+  int32 id = 1;
+}

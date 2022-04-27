@@ -3,18 +3,19 @@ package client
 import (
 	"context"
 	"fmt"
-
-	"github.com/lubanproj/gorpc/metadata"
-	"github.com/lubanproj/gorpc/stream"
-
-	"github.com/lubanproj/gorpc/codes"
-	"github.com/lubanproj/gorpc/pool/connpool"
-	"github.com/lubanproj/gorpc/protocol"
-	"github.com/lubanproj/gorpc/selector"
-	"github.com/lubanproj/gorpc/transport"
-	"google.golang.org/protobuf/proto"
-
-	"github.com/lubanproj/gorpc/codec"
+	"github.com/golang/protobuf/proto"
+	"mygorpc/codec"
+	"mygorpc/codes"
+	"mygorpc/interceptor"
+	"mygorpc/metadata"
+	"mygorpc/pool/connpool"
+	"mygorpc/protocol"
+	"mygorpc/selector"
+	"mygorpc/serialization"
+	"mygorpc/stream"
+	"mygorpc/transport"
+	"mygorpc/transport/client_transport"
+	"mygorpc/utils"
 )
 
 type Client interface {
@@ -42,7 +43,7 @@ func (c *defaultClient) Call(ctx context.Context, servicePath string, req interf
 	// reflection calls need to be serialized using msgpack
 	callOpts := make([]ClientOption, 0, len(opts)+1)
 	callOpts = append(callOpts, opts...)
-	callOpts = append(callOpts, WithSerializationType(codec.MsgPack))
+	callOpts = append(callOpts, WithSerializationType(serialization.MsgPack))
 
 	// servicePath example : /helloworld.Greeter/SayHello
 	err := c.Invoke(ctx, req, rsp, servicePath, callOpts...)
@@ -55,14 +56,41 @@ func (c *defaultClient) Call(ctx context.Context, servicePath string, req interf
 
 // 两种方式，不论是使用gostruct的反射方式还是proto代码生成，最终都会调用 invoke 函数。invoke 完成了一个客户端的完整动作
 func (c *defaultClient) Invoke(ctx context.Context, req, rsp interface{}, path string, opts ...ClientOption) error {
+	for _, o := range opts {
+		o(c.opts)
+	}
 
+	if c.opts.timeout > 0 {
+		//var cancel context.CancelFunc
+		_, cancel := context.WithTimeout(ctx, c.opts.timeout)
+		defer cancel()
+	}
+
+	// set serviceName, method
+	newCtx, clientStream := stream.NewClientStream(ctx)
+
+	serviceName, method, err := utils.ParseServicePath(path)
+	if err != nil {
+		return err
+	}
+	WithMethod(method)(c.opts)
+	WithServiceName(serviceName)(c.opts)
+	//c.opts.serviceName = serviceName
+	//c.opts.method = method
+
+	// TODO : delete or not
+	clientStream.WithServiceName(serviceName)
+	clientStream.WithMethod(method)
+
+	// execute the interceptor first
+	return interceptor.ClientIntercept(newCtx, req, rsp, c.opts.interceptors, c.invoke)
 }
 
 func (c *defaultClient) invoke(ctx context.Context, req, rsp interface{}) error {
 
 	//通过客户端透传下来的序列化类型参数，去获取 Serialization 对象，
 	//然后通过 Serialization 对 request 进行序列化，会把请求体序列化成二进制数据
-	serialization := codec.GetSerialization(c.opts.serializationType)
+	serialization := serialization.GetSerialization(c.opts.serializationType)
 	payload, err := serialization.Marshal(req)
 	if err != nil {
 		return codes.NewFrameworkError(codes.ClientMsgErrorCode, "request marshal failed ...")
@@ -87,13 +115,13 @@ func (c *defaultClient) invoke(ctx context.Context, req, rsp interface{}) error 
 	//底层 tcp 通信的能力是通过 transport 实现的，这里先创建一个client transport，
 
 	clientTransport := c.NewClientTransport()
-	clientTransportOpts := []transport.ClientTransportOption{
-		transport.WithServiceName(c.opts.serviceName),
-		transport.WithClientTarget(c.opts.target),
-		transport.WithClientNetwork(c.opts.network),
-		transport.WithClientPool(connpool.GetPool("default")),
-		transport.WithSelector(selector.GetSelector(c.opts.selectorName)),
-		transport.WithTimeout(c.opts.timeout),
+	clientTransportOpts := []client_transport.ClientTransportOption{
+		client_transport.WithServiceName(c.opts.serviceName),
+		client_transport.WithClientTarget(c.opts.target),
+		client_transport.WithClientNetwork(c.opts.network),
+		client_transport.WithClientPool(connpool.GetPool("default")),
+		client_transport.WithSelector(selector.GetSelector(c.opts.selectorName)),
+		client_transport.WithTimeout(c.opts.timeout),
 	}
 	//然后调用 transport 的 Send 函数往下游发送请求，会收到 server 返回的一个完整响应帧数据
 	// 客户端将请求数据send到服务器，接受服务器返回的frame，这个frame包括帧头+包头+包体
@@ -129,12 +157,12 @@ func addReqHeader(ctx context.Context, client *defaultClient, payload []byte) *p
 	md := metadata.ClientMetadata(ctx)
 
 	// fill the authentication information
-	for _, pra := range client.opts.perRPCAuth {
-		authMd, _ := pra.GetMetadata(ctx)
-		for k, v := range authMd {
-			md[k] = []byte(v)
-		}
-	}
+	//for _, pra := range client.opts.perRPCAuth {
+	//	authMd, _ := pra.GetMetadata(ctx)
+	//	for k, v := range authMd {
+	//		md[k] = []byte(v)
+	//	}
+	//}
 
 	request := &protocol.Request{
 		ServicePath: servicePath,
@@ -146,5 +174,5 @@ func addReqHeader(ctx context.Context, client *defaultClient, payload []byte) *p
 }
 
 func (c *defaultClient) NewClientTransport() transport.ClientTransport {
-	return transport.GetClientTransport(c.opts.protocol)
+	return client_transport.GetClientTransport(c.opts.protocol)
 }
