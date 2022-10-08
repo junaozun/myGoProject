@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>删除页面</title>
+</head>
+<body>
+
+<h1>欢迎使用</h1>
+<p>返回错误信息:{{.message}}</p>
+<p>最大电量:{{.maxPower}}</p>
+<p>最大收益:{{.maxIncome}}</p>
+<p>当前收益:{{.income}}</p>
+<p>收益锁:{{.lockStage}}</p>
+<p>拥有的麦克风:{{.tokenIds}}</p>
+{{.comment}}
+
+<form action="/delete" method="post" enctype="application/x-www-form-urlencoded" novalidate autocapitalize="off">
+
+    <div>麦克风Token:
+        <input type="text" name="tokenId">
+    </div>
+    <div>
+        <input type="submit" value="删除">
+    </div>
+</form>
+
+</body>
+</html>

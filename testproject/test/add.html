@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加页面</title>
+</head>
+<body>
+
+<h1>欢迎使用</h1>
+<p>返回错误信息:{{.message}}</p>
+<p>最大电量:{{.maxPower}}</p>
+<p>最大收益:{{.maxIncome}}</p>
+<p>当前收益:{{.income}}</p>
+<p>收益锁:{{.lockStage}}</p>
+<p>拥有的麦克风:{{.tokenIds}}</p>
+<!--<ul>-->
+<!--    {{ range .items}}-->
+<!--    <li>名称：{{.Name}} 价格：{{.Price}}</li>-->
+<!--    {{end}}-->
+<!--</ul>-->
+{{.comment}}
+
+<form action="/add" method="post" enctype="application/x-www-form-urlencoded" novalidate autocapitalize="off">
+
+    <div>麦克风Token:
+        <input type="text" name="tokenId">
+    </div>
+    <div>品质(R,SR,SSR,UR)：
+        <input type="text" name="quality">
+    </div>
+    <div>
+        <input type="submit" value="添加">
+    </div>
+</form>
+
+</body>
+</html>

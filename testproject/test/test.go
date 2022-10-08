@@ -1,50 +1,75 @@
 package main
 
 import (
-"fmt"
-"os"
-"sort"
-"text/template"
+	"fmt"
+	"time"
 )
 
-var tepl1 = `func (m *{{.ModelName}}) HMapKey() string {
-	return fmt.Sprintf("{{.TableName}}:{{.EntityDBID}}:%v", m.{{.EntityID}})
-}`
-
-var tepl2 = `
-func (m *{{.ModelName}}) PK() (pk string){
-	fmtStr:="{{.TableName}}{{- range $i, $v := .PKFields -}}:%v{{- end -}}"
-	return fmt.Sprintf(fmtStr
-		{{- range $i, $v := .PKFields -}}
-			m.{{$v}}
-		{{- end -}}
-		)
+type aa struct {
+	a int
+	b int
 }
-`
+
+func calConeKeyProgress(totalValue int64, payArr []int64) []int64 {
+	res := calWeightProgress(totalValue, payArr)
+	return res[1:]
+}
+
+func calWeightProgress(totalValue int64, payArr []int64) []int64 {
+	var sum int64
+	for _, v := range payArr {
+		sum += v
+	}
+	res := make([]int64, 0, len(payArr))
+	var temp int64
+	for _, v := range payArr {
+		temp += v
+		cc := temp * totalValue / sum
+		res = append(res, cc)
+	}
+	return res
+}
 
 func main() {
-
-	{
-		data := map[string]interface{}{
-			"ModelName":  "A",
-			"TableName":  "t1",
-			"EntityDBID": "id",
-			"EntityID":   "ID",
+	ch := make(chan struct{})
+	go func() {
+		for {
+			time.Sleep(5 * time.Second)
+			fmt.Printf("000000000000")
+			ch <- struct{}{}
 		}
-
-		tmpl, _ := template.New("test").Parse(tepl1)
-		tmpl.Execute(os.Stdout, data)
-		fmt.Println("")
+	}()
+	select {
+	case <-ch:
+		fmt.Println("888888888888888")
+		return
 	}
+	fmt.Println("2222222222222222")
 
-	{
-		data := map[string]interface{}{
-			"ModelName": "A",
-			"TableName": "t1",
-			"PKFields":  sort.StringSlice{"ID", "SubID"},
+}
+
+func aaaa() []int {
+	return nil
+}
+func f1() {
+	defer func() {
+		if e := recover(); e != nil {
+			fmt.Printf("recover panic:%v\n", e)
 		}
-		tmpl, _ := template.New("test").Parse(tepl2)
-		tmpl.Execute(os.Stdout, data)
-		fmt.Println("")
-	}
+	}()
+	// 开启一个goroutine执行任务
+	go func() {
+		defer func() {
+			if e := recover(); e != nil {
+				fmt.Printf("recover panic222222:%v\n", e)
+			}
+		}()
+
+		fmt.Println("in goroutine....")
+		// 只能触发当前goroutine中的defer
+		panic("panic in goroutine")
+	}()
+
+	time.Sleep(time.Second)
+	fmt.Println("exit")
 }

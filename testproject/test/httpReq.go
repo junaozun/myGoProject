@@ -17,7 +17,7 @@ const (
 )
 
 // 发送GET请求
-// url：         请求地址
+// addr：         请求地址
 // response：    请求返回的内容
 func Get(url string) string {
 
@@ -44,7 +44,7 @@ func Get(url string) string {
 }
 
 // 发送POST请求
-// url：         请求地址
+// addr：         请求地址
 // data：        POST请求提交的数据
 // contentType： 请求体格式，如：application/json
 // content：     请求放回的内容
@@ -102,10 +102,10 @@ func PostForm(url string, value url.Values, out interface{}) error {
 
 // test
 func main() {
-	//post要提交的数据
-	dataUrlVal := url.Values{}
-	dataUrlVal.Add("sid", "10040111122")
-	dataUrlVal.Add("account", "nihao")
-	dataUrlVal.Add("gate", "11223")
-	PostForm("http://127.0.0.1:10008/check_login", dataUrlVal, nil)
+	// post要提交的数据
+	// dataUrlVal := url.Values{}
+	// dataUrlVal.Add("sid", "10040111122")
+	// dataUrlVal.Add("account", "nihao")
+	// dataUrlVal.Add("gate", "11223")
+	// PostForm("http://127.0.0.1:14001?mod=vms&r=gameApi/getMaintain", dataUrlVal, nil)
 }
