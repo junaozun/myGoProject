@@ -1,1 +1,5 @@
-package json2execl
+package main
+
+func main() {
+	Export()
+}

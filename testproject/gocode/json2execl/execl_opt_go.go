@@ -1,4 +1,4 @@
-package service
+package main
 
 import (
 	"errors"
@@ -46,7 +46,7 @@ func Export() {
 			row.AddCell().Value = data[field.Field]
 		}
 	}
-	outFile := "/Users/sxf/Downloads/out_student.xlsx"
+	outFile := "./out_student.xlsx"
 	err = file.Save(outFile)
 	if err != nil {
 		fmt.Printf(err.Error())
@@ -58,7 +58,7 @@ func getStudents() []Student {
 	students := make([]Student, 0)
 	for i := 0; i < 10; i++ {
 		stu := Student{}
-		stu.Name = "love" + strconv.Itoa(i+1)
+		stu.Name = "mmmd" + strconv.Itoa(i+1)
 		stu.Mail = stu.Name + "@studygolang.com"
 		stu.Phone = "10086" + strconv.Itoa(i)
 		stu.Age = 18 + i
