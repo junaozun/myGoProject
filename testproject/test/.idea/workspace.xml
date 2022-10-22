@@ -5,54 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81b7900b-0b10-41b9-81e7-402a5c7ee1f4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../gocode/cron/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../gocode/errgroup/dd.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../gocode/errgroup/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../gocode/float/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../gocode/nats/publish/p2.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../gocode/nats/subscrib/s2.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../gocode/options/options2.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../gocode/redis/listMQ/listmq_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../gocode/redis/listMQ/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../gocode/redis/pub/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../gocode/redis/sub/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../gocode/websocket/websocket.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../gocode/xorm/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../gocode/xorm/pojo.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../k8s_yaml/depolyment.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../k8s_yaml/pod.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/birthday.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/delete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/http_sign.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/income.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kmp.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microphoneTest.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/refelect.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/refelect2.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/websocket.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ginblog/.idea/ginblog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ginblog/.idea/ginblog.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ginblog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ginblog/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../mygorpc/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../mygorpc/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gocode/nats/publish/publish.go" beforeDir="false" afterPath="$PROJECT_DIR$/../gocode/nats/publish/publish.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gocode/nats/subscrib/subscrib.go" beforeDir="false" afterPath="$PROJECT_DIR$/../gocode/nats/subscrib/subscrib.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gocode/options/options.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gocode/redis/flush.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gocode/redis/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gocode/redis/go.sum" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gocode/redis/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gocode/redis/test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gocode/redis/test.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gocode/redis/tt.go" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gocode/kcp_demo/client.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gocode/kcp_demo/server.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gocode/lua-go/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WonPressureTest.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/avatar.go" beforeDir="false" afterPath="$PROJECT_DIR$/avatar.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddd.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/httpReq.go" beforeDir="false" afterPath="$PROJECT_DIR$/httpReq.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nih.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test3.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,13 +37,13 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/microphoneTest.go" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/add.html" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/test.go" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/httpReq.go" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/income.html" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/kmp.go" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/delete.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/test.go" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/add.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/income.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/microphoneTest.go" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/httpReq.go" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/kmp.go" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">
     <option name="context" value="eks-test" />
@@ -120,7 +78,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build birthday.go">
+  <component name="RunManager" selected="Go Build.go build httpReq.go">
     <configuration name="go build birthday.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <working_directory value="$PROJECT_DIR$" />
@@ -129,12 +87,12 @@
       <filePath value="$PROJECT_DIR$/birthday.go" />
       <method v="2" />
     </configuration>
-    <configuration name="go build login.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build httpReq.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/login.go" />
+      <filePath value="$PROJECT_DIR$/httpReq.go" />
       <method v="2" />
     </configuration>
     <configuration name="go build microphoneTest.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -163,11 +121,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build birthday.go" />
+        <item itemvalue="Go Build.go build httpReq.go" />
         <item itemvalue="Go Build.go build test.go" />
+        <item itemvalue="Go Build.go build birthday.go" />
         <item itemvalue="Go Build.go build refelect2.go" />
         <item itemvalue="Go Build.go build microphoneTest.go" />
-        <item itemvalue="Go Build.go build login.go" />
       </list>
     </recent_temporary>
   </component>

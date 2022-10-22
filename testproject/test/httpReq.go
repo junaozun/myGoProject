@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
+	"math/rand"
 	"net/http"
 	"net/url"
 	"strings"
@@ -102,10 +103,20 @@ func PostForm(url string, value url.Values, out interface{}) error {
 
 // test
 func main() {
+
 	// post要提交的数据
 	// dataUrlVal := url.Values{}
 	// dataUrlVal.Add("sid", "10040111122")
 	// dataUrlVal.Add("account", "nihao")
 	// dataUrlVal.Add("gate", "11223")
 	// PostForm("http://127.0.0.1:14001?mod=vms&r=gameApi/getMaintain", dataUrlVal, nil)
+	// for i := 0; i < 1000; i++ {
+	// 	res := Get("http://47.98.211.160/lobby/get_my_microphone")
+	// 	fmt.Println(res)
+	// }
+	for i := 0; i < 20; i++ {
+		dd := rand.Intn(10)
+		fmt.Println(dd)
+	}
+
 }

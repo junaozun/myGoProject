@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sync"
 	"time"
 )
 
@@ -31,21 +32,18 @@ func calWeightProgress(totalValue int64, payArr []int64) []int64 {
 }
 
 func main() {
-	ch := make(chan struct{})
-	go func() {
-		for {
-			time.Sleep(5 * time.Second)
-			fmt.Printf("000000000000")
-			ch <- struct{}{}
-		}
-	}()
-	select {
-	case <-ch:
-		fmt.Println("888888888888888")
-		return
-	}
-	fmt.Println("2222222222222222")
+	var wg sync.WaitGroup
+	for i := 0; i < 10; i++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			for {
 
+			}
+		}()
+	}
+	wg.Wait()
+	fmt.Println("88")
 }
 
 func aaaa() []int {
